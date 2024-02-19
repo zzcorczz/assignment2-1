@@ -38,6 +38,21 @@
       },
       screenStyles: {
         headerShown: false,
+        headerBackVisible: false,
+      },
+      activities: {
+        headerShown: false,
+        headerBackVisible: false,
+      },
+      addScreen: {
+        title:'Add An Activity',
+        headerStyle: {
+          backgroundColor: "#363776"
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          color: "#fff"
+        },
       },
       resetConfirm: {
         flexDirection: 'row',

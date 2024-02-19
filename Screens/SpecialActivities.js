@@ -1,13 +1,13 @@
 import { View, Text, Button } from 'react-native'
 import React, { useEffect } from 'react'
-import { Styles } from '../Components/Styles'
 
-export default function AllActivities( {navigation} ) {
-
+export default function SpecialActivities({navigation}) {
+  
   function addHandler() {
     navigation.navigate('Add')
   }
-
+  
+  
   useEffect(() => navigation.setOptions(
     {headerRight: () => (
         <Button
@@ -17,12 +17,10 @@ export default function AllActivities( {navigation} ) {
       )}
     )
   )
-
+  
   return (
-    <View style={Styles.container}>
-      <Text>AllActivities</Text>
+    <View>
+      <Text>SpecialActivities</Text>
     </View>
   )
-
-
 }

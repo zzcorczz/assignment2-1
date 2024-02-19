@@ -80,12 +80,9 @@ export default function Start( {navigation} ) {
       setConfirm(true);
       setPhoneAlert(false);
       setEmailAlert(false);
+      navigation.navigate('Tab')
     }
-    if (confirm === true) {
-      navigation.navigate('allActivities')
-    }
-
-  }
+  };
 
 
 

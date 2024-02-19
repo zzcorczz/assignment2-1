@@ -1,42 +1,61 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { createContext, useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Start from './Screens/Start';
 import { Styles } from './Components/Styles';
-import allActivities from './Screens/allActivities';
+import AllActivities from './Screens/AllActivities';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SpecialActivities from './Screens/SpecialActivities';
+import ContextProvider from './Components/ActivitiesList';
+import AddAnActivity from './Screens/AddAnActivity';
+
 
 const stack = createNativeStackNavigator();
 
+const stack2 = createNativeStackNavigator();
 
+const Tab = createBottomTabNavigator();
 
+function TabScreen () {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name='AllActivities'
+        component={AllActivities}
+      />
+      <Tab.Screen
+        name='SpecialActivities'
+        component={SpecialActivities}
+      />
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
 
   return (
-  <NavigationContainer>
-    <stack.Navigator>
-      <stack.Screen options={Styles.screenStyles}
-        name='start'
-        component={Start}
-      />
-      <stack.Screen
-        name='allActivies'
-        componet={allActivities}
-      />
-    </stack.Navigator>
-  </NavigationContainer>
-
+    <NavigationContainer>
+      <ContextProvider>
+        <stack.Navigator>
+          <stack.Screen 
+            options={Styles.screenStyles}
+            name='start'
+            component={Start}
+          />
+          <stack.Screen 
+            options={Styles.activities}
+            name='Tab'
+            component={TabScreen}
+          />
+          <stack.Screen
+            options={Styles.addScreen}
+            name='Add'
+            component={AddAnActivity}
+          />
+        </stack.Navigator>
+      </ContextProvider>
+    </NavigationContainer>
   );
-}
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
