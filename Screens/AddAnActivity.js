@@ -1,13 +1,21 @@
-import { View, Text } from 'react-native';
-import React, { useState } from 'react';
+import { View, Text, Button} from 'react-native';
+import React, { useEffect, useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Styles } from '../Components/Styles';
 import TextBox from '../Components/TextBox';
+import DatePicker from '../Components/DatePicker';
+import { useUpdateHook, useContextHook } from '../Components/ActivitiesList';
+
 
 export default function AddAnActivity( { navigation, route } ) {
 
+  updateArray = useUpdateHook();
+  array = useContextHook();
+  
+
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [duration, setDuration] = useState('')
+  const [value, setValue] = useState();
   const [items, setItems] = useState(
     [
       {label: 'Walking', value: 'Walking'},
@@ -18,33 +26,82 @@ export default function AddAnActivity( { navigation, route } ) {
       {label: 'Cycling', value: 'Cycling'},
       {label: 'Hiking', value: 'Hiking'},
     ]
-  )
+  );
+  const [text, setText] = useState('');
 
-  function openHanlder() {
-    if (open === true) {
-      setOpen(false);
-    }
-    else if (open === false) {
-      setOpen(true);
-    }
+  function selectHandler(data) {
+    setValue(data.value)
+    setOpen(false)
   }
 
+  console.log(value);
+  console.log(duration);
+  console.log(text);
+  console.log(array)
 
+  function confirmHandler() {
+    /*
+    if(isNaN(parseInt(duration)) === true) {
+      return false;
+    }
+    if(parseInt(duration) < 0) {
+      return false;
+    }
+    if (text == undefined) {
+      return false;
+    }
+    */
+    
+    if (isNaN(parseInt(duration)) === false && parseInt(duration) > 0 && text !== '' && value !== undefined) {
+      updateArray(
+        {
+          date: text,
+          time: parseInt(duration),
+          activity: value
+        } 
+      )
+      navigation.navigate('AllActivities')
+    }
 
+    else {
+      alert(
+        'Wrong Input!'
+      )
+    }
+  }
+  
   return (
-    <View style={Styles.container}>
+
+    <View style={Styles.containerAdd}>
+      
       <DropDownPicker
         open={open}
         value={value}
         items={items}
-        setOepn={setOpen}
         setValue={setValue}
         setItems={setItems}
+        onPress={setOpen}
+        onSelectItem={selectHandler}
+        containerStyle={
+          {
+            width: 300,
+          }
+        }
       />
       <TextBox
         intro={'Duration (min) *'}
+        onChangeText={setDuration}
+        text={duration}
       />
-      <TextBox/>
+      <DatePicker
+        text={text}
+        setText={setText}
+      />
+      <Button
+        title={'Confirm'}
+        onPress={confirmHandler}
+        style={Styles.confirmStyle}
+      />
     </View>
   )
 }

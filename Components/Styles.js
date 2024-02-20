@@ -23,6 +23,16 @@
         alignItems: 'center',
         justifyContent: 'center',
       },
+      date: {
+        flex: 1,
+      },
+      containerAdd: {
+        flex: 1,
+        backgroundColor: '#aaa9c7',
+        alignItems: 'center',
+        alignContent: 'center',
+        paddingTop: 50,
+      },
       textBox: {
         backgroundColor: '#b2b2d5',
         borderRadius: 5,

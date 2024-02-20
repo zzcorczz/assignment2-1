@@ -18,11 +18,12 @@ export default function ContextProvider({ children }) {
 
   function addArray( data ) {
     
-
     const newAct = { data: data, id: Math.random()};
-    setAct((currentActs) => {
-      return [...currentActs, newAct];
+
+    setArray((currentActs) => {
+      return [...currentActs, newAct]
     })
+
   }
 
 
