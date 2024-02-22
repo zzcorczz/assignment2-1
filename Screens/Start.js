@@ -1,3 +1,12 @@
+/*
+File name:
+  Start.js
+Purpose:
+  The start screen of the app.
+  It will check the user's input and make sure that it is valid.
+*/
+
+
 import { View, Text, SafeAreaView } from 'react-native'
 import React, { useState } from 'react'
 import TextBox from '../Components/TextBox';

@@ -1,3 +1,12 @@
+/*
+File name:
+  AddAnActivity.js
+Purpose:
+  This file contains the Add Activity Screen.
+  This is where we add activities.
+*/
+
+
 import { View, Text, Button} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';

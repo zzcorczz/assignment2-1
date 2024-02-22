@@ -161,6 +161,7 @@
         fontWeight: 'bold',
       },
       flatListView: {
+        flex:1,
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'center',

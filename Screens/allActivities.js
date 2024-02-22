@@ -1,3 +1,10 @@
+/*
+File name:
+  AllActivities.js
+Purpose:
+  This file contains All Activities screen.
+*/
+
 import { View, Text, Button, FlatList } from 'react-native';
 import React, { useEffect } from 'react';
 import { Styles } from '../Components/Styles';

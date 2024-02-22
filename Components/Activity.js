@@ -1,3 +1,11 @@
+  /*
+    File name:
+      Activity.js
+    Purpose:  
+      This is where the fomatted component that
+      displays the activity, date, duration is defined.
+  */
+
 import { View, Text } from 'react-native'
 import React from 'react'
 import { Styles } from './Styles'

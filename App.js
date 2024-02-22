@@ -1,3 +1,13 @@
+/*
+File name:
+  App.js
+Purpose:
+  The entry point of the application.
+  Note: We are combining two tab screens together as a component, and then
+  pass it to the main function.
+*/
+
+
 import { StatusBar } from 'expo-status-bar';
 import { createContext, useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';

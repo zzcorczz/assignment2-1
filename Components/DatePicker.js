@@ -1,3 +1,11 @@
+  /*
+    File name:
+      DatePicker.js
+    Purpose:  
+      Where the datapicker component is designed and implemented.
+      It is used in AddAnActivity.js
+  */
+
 import { View, Text, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import DateTimePicker from '@react-native-community/datetimepicker';
