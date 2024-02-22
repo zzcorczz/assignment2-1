@@ -25,28 +25,60 @@ function TabScreen () {
     <Tab.Navigator
       screenOptions = {
         Styles.bottomTab
+        
       }
     >
       <Tab.Screen
         name='All Activities'
         component={AllActivities}
         options={{
-          tabBarIcon: ({focused, color, number})=>{
-            { focused ? (
-              <FontAwesome name="dollar" size={24} color={'orange'} />
-            ) : (
-              <FontAwesome name="dollar" size={24} color={'orange'}/>
+          tabBarLabel: ({focused, color, number})=>{
+            { return focused ? (
+              <Text style={{color:'orange', fontSize:8}}> All Activities </Text>
+             ) : (
+              <Text style={{color:'grey', fontSize:8}}> All Activities </Text>
             )
-          
+          }},
+          tabBarIcon: ({focused, color, number})=>{
+            { return focused ? (
+              <FontAwesome
+               name="dollar" 
+               size={24}
+               color={'orange'} 
+              />)
+             : (
+              <FontAwesome name="dollar" size={24} color={'grey'}/>
+            )
           }
           }
-
         }
         }
       />
       <Tab.Screen
         name='Special Activities'
         component={SpecialActivities}
+        options={{
+          tabBarLabel: ({focused, color, number})=>{
+            { return focused ? (
+              <Text style={{color:'orange', fontSize:8}}> Special Activities </Text>
+             ) : (
+              <Text style={{color:'grey', fontSize:8}}> Special Activities </Text>
+            )
+          }},
+          tabBarIcon: ({focused, color, number})=>{
+            { return focused ? (
+              <FontAwesome
+               name="exclamation" 
+               size={24}
+               color={'orange'} 
+              />)
+             : (
+              <FontAwesome name="exclamation" size={24} color={'grey'}/>
+            )
+          }
+          }
+        }
+        }
       />
     </Tab.Navigator>
   )

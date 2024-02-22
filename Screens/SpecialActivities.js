@@ -27,7 +27,18 @@ export default function SpecialActivities({navigation}) {
           title='Add'
           onPress={addHandler}
         />
-      )}
+      ),
+      headerTitleStyle: {
+        color: 'white',
+      },  
+      headerStyle: {
+        backgroundColor:'#363776',
+      },
+      tabBarStyle: {
+        backgroundColor: '#363776'
+      },
+     
+    }
     )
   )
 

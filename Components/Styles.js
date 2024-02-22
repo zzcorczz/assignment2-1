@@ -64,7 +64,6 @@
           backgroundColor: '#363776'
         }
       },
-
       addScreen: {
         title:'Add An Activity',
         headerStyle: {
@@ -84,6 +83,19 @@
         fontSize: 20,
         color: 'red',
         marginRight: 100,
+      },
+      cancelTextStyle: {
+        fontSize: 20,
+        color: 'red',
+      },
+      cancelSaveView: {
+        flexDirection:'row',
+        width: '50%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        alignContent: 'center',
+        alignSelf: 'center',
+        marginTop: 180,
       },
       confirmStyle: {
         fontSize: 20,

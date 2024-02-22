@@ -32,18 +32,11 @@ export default function AddAnActivity( { navigation, route } ) {
     setOpen(false)
   }
 
+  function cancelHandler() {
+    navigation.goBack();
+  }
+
   function confirmHandler() {
-    /*
-    if(isNaN(parseInt(duration)) === true) {
-      return false;
-    }
-    if(parseInt(duration) < 0) {
-      return false;
-    }
-    if (text == undefined) {
-      return false;
-    }
-    */
     
     if (isNaN(parseInt(duration)) === false && parseInt(duration) > 0 && text !== '' && value !== undefined) {
       updateArray(
@@ -53,7 +46,7 @@ export default function AddAnActivity( { navigation, route } ) {
           activity: value
         } 
       )
-      navigation.navigate('All Activities')
+      navigation.goBack();
     }
 
     else {
@@ -90,11 +83,16 @@ export default function AddAnActivity( { navigation, route } ) {
         text={text}
         setText={setText}
       />
-      <Button
-        title={'Confirm'}
-        onPress={confirmHandler}
-        style={Styles.confirmStyle}
-      />
+      <View style={Styles.cancelSaveView}>
+        <Text
+          style={Styles.cancelTextStyle}
+          onPress={cancelHandler}
+        >Cancel</Text>
+        <Text
+          onPress={confirmHandler}
+          style={Styles.confirmStyle}
+        >Save</Text>
+      </View>
     </View>
   )
 }
