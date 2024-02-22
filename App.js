@@ -15,7 +15,7 @@ import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Start from './Screens/Start';
 import { Styles } from './Components/Styles';
-import AllActivities from './Screens/AllActivities';
+import AllActivities from './Screens/allActivities';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SpecialActivities from './Screens/SpecialActivities';
 import ContextProvider from './Components/ActivitiesList';
