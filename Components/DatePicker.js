@@ -22,10 +22,11 @@ export default function DatePicker( props ) {
     }
   }
 
-  function changeHandler( event, date ) {
+
+  function changeHandler( event, newDate ) {
     setPressed(false);
-    setDate(date);
-    props.setText(date.toDateString())
+    setDate(newDate);
+    props.setText(newDate.toDateString())
   }
 
   return (
@@ -35,7 +36,6 @@ export default function DatePicker( props ) {
         value={props.text}
         style={Styles.textBox}
         onPressIn={pressedHanlder}
-        editable={false}
       />
       {pressed && 
       <DateTimePicker 

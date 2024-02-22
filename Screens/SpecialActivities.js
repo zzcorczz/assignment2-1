@@ -1,5 +1,8 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, FlatList } from 'react-native'
 import React, { useEffect } from 'react'
+import { Styles } from '../Components/Styles'
+import Activity from '../Components/Activity'
+import { useContextHook } from '../Components/ActivitiesList'
 
 export default function SpecialActivities({navigation}) {
   
@@ -7,6 +10,16 @@ export default function SpecialActivities({navigation}) {
     navigation.navigate('Add')
   }
   
+  function judgeSpecial(obj) {
+    
+    if ((obj.data.activity === 'Running' || obj.data.activity === 'Weights') && obj.data.time >= 60)
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
   
   useEffect(() => navigation.setOptions(
     {headerRight: () => (
@@ -17,10 +30,41 @@ export default function SpecialActivities({navigation}) {
       )}
     )
   )
+
+
   
+  function saperator() {
+    return (
+      <View style={Styles.saperator}>
+
+      </View>
+    )
+  }
+
+  array = useContextHook();
+
+  const newArray = array.filter(judgeSpecial);
+
   return (
-    <View>
-      <Text>SpecialActivities</Text>
+    <View style={Styles.container}>
+      <View style={Styles.flatListView}>
+        <FlatList
+          data={newArray}
+          renderItem={
+            ({item}) => {
+              return (
+                <Activity
+                  activity = {item.data.activity}
+                  date = {item.data.date}
+                  duration = {item.data.time}
+                  id = {item.id}
+                />
+              )
+            }
+          }
+          ItemSeparatorComponent={saperator}
+        />
+      </View>
     </View>
   )
 }

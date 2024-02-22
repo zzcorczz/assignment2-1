@@ -10,6 +10,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SpecialActivities from './Screens/SpecialActivities';
 import ContextProvider from './Components/ActivitiesList';
 import AddAnActivity from './Screens/AddAnActivity';
+import { FontAwesome } from '@expo/vector-icons';
+
 
 
 const stack = createNativeStackNavigator();
@@ -20,13 +22,30 @@ const Tab = createBottomTabNavigator();
 
 function TabScreen () {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions = {
+        Styles.bottomTab
+      }
+    >
       <Tab.Screen
-        name='AllActivities'
+        name='All Activities'
         component={AllActivities}
+        options={{
+          tabBarIcon: ({focused, color, number})=>{
+            { focused ? (
+              <FontAwesome name="dollar" size={24} color={'orange'} />
+            ) : (
+              <FontAwesome name="dollar" size={24} color={'orange'}/>
+            )
+          
+          }
+          }
+
+        }
+        }
       />
       <Tab.Screen
-        name='SpecialActivities'
+        name='Special Activities'
         component={SpecialActivities}
       />
     </Tab.Navigator>

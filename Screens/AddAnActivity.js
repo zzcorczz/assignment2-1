@@ -9,9 +9,7 @@ import { useUpdateHook, useContextHook } from '../Components/ActivitiesList';
 
 export default function AddAnActivity( { navigation, route } ) {
 
-  updateArray = useUpdateHook();
-  array = useContextHook();
-  
+  updateArray = useUpdateHook();  
 
   const [open, setOpen] = useState(false);
   const [duration, setDuration] = useState('')
@@ -34,11 +32,6 @@ export default function AddAnActivity( { navigation, route } ) {
     setOpen(false)
   }
 
-  console.log(value);
-  console.log(duration);
-  console.log(text);
-  console.log(array)
-
   function confirmHandler() {
     /*
     if(isNaN(parseInt(duration)) === true) {
@@ -60,7 +53,7 @@ export default function AddAnActivity( { navigation, route } ) {
           activity: value
         } 
       )
-      navigation.navigate('AllActivities')
+      navigation.navigate('All Activities')
     }
 
     else {
